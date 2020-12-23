@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class Listen {
-    @RabbitListener(queues = {"test_queue2"})
+    @RabbitListener(queues = {"${spring.rabbitmq.company.queue}"})
     public void listen(String msg){
         log.info(msg);
     }

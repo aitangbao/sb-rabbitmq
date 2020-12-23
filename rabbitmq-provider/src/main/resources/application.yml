@@ -1,13 +1,21 @@
 spring:
   rabbitmq:
-    host: 127.0.0.1
+    host: localhost
     port: 5672
-    username: guest
-    password: guest
+    virtual-host: /test
+    username: test
+    password: test
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 2000
+          max-attempts: 3
     exchange: test_exchange
     company:
-      queue: company_quequ
-    message:
-      queue: message_quequ
+      queue: company_queque
+    messageVisit:
+      queue: message_visit_queque
+
 server:
   port: 8091
